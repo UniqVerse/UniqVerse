@@ -1,0 +1,3 @@
+[workspace]
+members = ["contracts/nft", "contracts/nft2", "contracts/marketplace","contracts/flipper"]
+resolver = "2"
