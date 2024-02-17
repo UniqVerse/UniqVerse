@@ -18,22 +18,22 @@ import {
   useInkathon,
 } from '@scio-labs/use-inkathon'
 import { AlertOctagon } from 'lucide-react'
-import aznsIconSvg from './next.svg'
+import aznsIconSvg from 'public/icons/azns-icon.svg'
 import toast from 'react-hot-toast'
 import { AiOutlineCheckCircle, AiOutlineDisconnect } from 'react-icons/ai'
 import { FiChevronDown, FiExternalLink } from 'react-icons/fi'
 import { RiArrowDownSLine } from 'react-icons/ri'
 
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '../ui/dropdown-menu'
-import { env } from '../../config/environment'
-import { truncateHash } from '../../utils/truncate-hash'
+} from '@/components/ui/dropdown-menu'
+import { env } from '@/config/environment'
+import { truncateHash } from '@/utils/truncate-hash'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 

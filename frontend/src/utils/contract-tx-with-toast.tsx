@@ -7,8 +7,6 @@ import {
   contractTx,
   useInkathon,
 } from '@scio-labs/use-inkathon'
-
-
 import { toast } from 'react-hot-toast'
 
 type ContractTxWithToastParams = Parameters<typeof contractTx>
