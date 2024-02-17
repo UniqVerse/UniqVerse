@@ -7,7 +7,7 @@ export function Button({type, cl, onClick}: { type: ButtonType, cl?: string; onC
 
     return (
          <button className={`${styles.generalButton} bg-${type}-static hover:bg-${type}Hover click:bg-${type}Click`} onClick={onClick} >   
-            {cl}
+            <img />{cl}
         </button>
     )
 }

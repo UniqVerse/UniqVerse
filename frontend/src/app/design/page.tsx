@@ -1,11 +1,6 @@
 import {Rarity, RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
 import {NftCard} from "@/src/app/components/baseComponents/NftCard/NftCard";
-import { FilledPrimaryButton } from "../components/baseComponents/Button/FilledPrimaryButton/FilledPrimaryButton";
-import { TextPrimaryButton } from "../components/baseComponents/Button/TextPrimaryButton/TextPrimaryButton";
-import { OutlinedNeutralButton } from "../components/baseComponents/Button/OutlinedNeutralButton/OutlinedNeutralButton";
-
 import {ButtonType, Button} from "@/src/app/components/baseComponents/Button/Button";
-import handleClickPrimaryButton from "./testFunction";
 
 export default function Design() {
     const badges = ["common", "uncommon", "rare", "epic", "legendary"].map((r) => {
