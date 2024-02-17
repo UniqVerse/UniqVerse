@@ -9,8 +9,9 @@ export function ValidateAndPublishNft() {
     "searchResult": <SearchResult/>,
     "publishNft": <PublishNft/>,
   }
+
   const def = steps["upload"]
-  const hash = window.location.hash ? window.location.hash.slice(1) : "upload"
+  const hash = typeof window !== 'undefined' && window.location.hash ? window.location.hash.slice(1) : "upload"
   console.log(hash)
   console.log(steps[hash])
   return (

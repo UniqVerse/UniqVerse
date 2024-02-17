@@ -3,7 +3,7 @@ import {NftCard} from "@/src/app/components/baseComponents/NftCard/NftCard";
 
 export default function Design() {
     const badges = ["common", "uncommon", "rare", "epic", "legendary"].map((r) => {
-        return <RarityBadge rarity={r as Rarity}/>
+        return <RarityBadge key={r} rarity={r as Rarity}/>
     });
     return (
         <>
