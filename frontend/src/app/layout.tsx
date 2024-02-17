@@ -2,7 +2,8 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-
+import ClientProviders from './providers'
+import { TooltipProvider } from './components/ui/tooltip'
 const inter = Inter({subsets: ["latin"],});
 
 export const metadata: Metadata = {
@@ -23,7 +24,12 @@ export default function RootLayout({
             <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap"
                   rel="stylesheet"/>
         </Head>
-        <body className={`${inter.className} bg-neutral0 text-neutral40`}>{children}</body>
+        <body className={inter.className}>
+            <ClientProviders>
+                <TooltipProvider>{children}</TooltipProvider>
+            </ClientProviders>
+
+            </body>
         </html>
     );
 }
