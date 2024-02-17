@@ -1,7 +1,10 @@
 import Image from "next/image";
+import { ValidateAndPublishNft } from "./components/validateAndPublishNft/ValidateAndPublishNft";
 
 export default function Home() {
   return (
-    <h1>Hello, UniqVerse!</h1>
+    <div>
+      <ValidateAndPublishNft/>
+    </div>
   )
 }

@@ -1,33 +1,263 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --neutral-40: #EEEAF4;
+    --neutral-30: #BDBAC2;
+    --neutral-20: #38363E;
+    --neutral-10: #29282E;
+    --neutral-0: #1C1B1F;
+    --opacity-0: #3AF8CD08;
+    --opacity-1: #3AF8CD0F;
+    --primary-static: #3AF8CD;
+    --primary-hover: #83FFE3;
+    --primary-click: #B9FFEF;
+    --rarity-common: #EEEAF4;
+    --rarity-common-2: #3A393E;
+    --rarity-uncommon: #6CFF95;
+    --rarity-uncommon-2: #303E38;
+    --rarity-rare: #3EB9FF;
+    --rarity-rare-2: #2B3743;
+    --rarity-epic: #B66DFF;
+    --rarity-epic-2: #372F43;
+    --rarity-legendary: #FF9900;
+    --rarity-legendary-2: #3E3329;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.body {
+    font-family: "Geologica", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "slnt" 0,
+    "CRSV" 0,
+    "SHRP" 0;
+
+    background-color: var(--neutral-0);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.display-large-bold {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
+.headline-large {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+}
+
+.title-large {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+}
+
+.title-small {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 0em;
+}
+
+.body-large {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.body-medium {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.body-small {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+.lable-large {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+
+.lable-small {
+    font-size: 14px;
+    font-weight: 250;
+    line-height: 20px;
+    letter-spacing: 0em;
+}
+
+.neutral-40 {
+    background-color: var(--neutral-40);
+}
+
+.neutral-30 {
+    background-color: var(--neutral-30);
+}
+
+.neutral-20 {
+    background-color: var(--neutral-20);
+}
+
+.neutral-10 {
+    background-color: var(--neutral-10);
+}
+
+.neutral-0 {
+    background-color: var(--neutral-0);
+}
+
+.opacity-0 {
+    background-color: var(--opacity-0);
+}
+
+.opacity-1 {
+    background-color: var(--opacity-1);
+}
+
+.primary-static {
+    background-color: var(--primary-static);
+}
+
+.primary-hover {
+    background-color: var(--primary-hover);
+}
+
+.primary-click {
+    background-color: var(--primary-click);
+}
+
+.bg-neutral-40 {
+    background-color: var(--neutral-40);
+}
+
+.bg-neutral-30 {
+    background-color: var(--neutral-30);
+}
+
+.bg-neutral-20 {
+    background-color: var(--neutral-20);
+}
+
+.bg-neutral-10 {
+    background-color: var(--neutral-10);
+}
+
+.bg-neutral-0 {
+    background-color: var(--neutral-0);
+}
+
+.bg-opacity-0 {
+    background-color: var(--opacity-0);
+}
+
+.bg-opacity-1 {
+    background-color: var(--opacity-1);
+}
+
+.bg-primary-static {
+    background-color: var(--primary-static);
+}
+
+.bg-primary-hover {
+    background-color: var(--primary-hover);
+}
+
+.bg-primary-click {
+    background-color: var(--primary-click);
+}
+
+.bg-rarity-common {
+    background-color: var(--rarity-common);
+}
+
+.bg-rarity-common-2 {
+    background-color: var(--rarity-common-2);
+}
+
+.bg-rarity-uncommon {
+    background-color: var(--rarity-uncommon);
+}
+
+.bg-rarity-uncommon-2 {
+    background-color: var(--rarity-uncommon-2);
+}
+
+.bg-rarity-rare {
+    background-color: var(--rarity-rare);
+}
+
+.bg-rarity-rare-2 {
+    background-color: var(--rarity-rare-2);
+}
+
+.bg-rarity-epic {
+    background-color: var(--rarity-epic);
+}
+
+.bg-rarity-epic-2 {
+    background-color: var(--rarity-epic-2);
+}
+
+.bg-rarity-legendary {
+    background-color: var(--rarity-legendary);
+}
+
+.bg-rarity-legendary-2 {
+    background-color: var(--rarity-legendary-2);
+}
+
+.rarity-common {
+    color: var(--rarity-common);
+}
+
+.rarity-common-2 {
+    color: var(--rarity-common-2);
+}
+
+.rarity-uncommon {
+    color: var(--rarity-uncommon);
+}
+
+.rarity-uncommon-2 {
+    color: var(--rarity-uncommon-2);
+}
+
+.rarity-rare {
+    color: var(--rarity-rare);
+}
+
+.rarity-rare-2 {
+    color: var(--rarity-rare-2);
+}
+
+.rarity-epic {
+    color: var(--rarity-epic);
+}
+
+.rarity-epic-2 {
+    color: var(--rarity-epic-2);
+}
+
+.rarity-legendary {
+    color: var(--rarity-legendary);
+}
+
+.rarity-legendary-2 {
+    color: var(--rarity-legendary-2);
+}
+
+

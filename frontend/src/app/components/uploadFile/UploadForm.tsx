@@ -29,6 +29,7 @@ export function UploadForm() {
       const response = (await res.json()) as BaseResponse<NftFileData>
       if (isSuccessResponse(response)) {
         saveUploadedNftFileData(response.data)
+        
       } else {
         throw new Error(response.message)
       }

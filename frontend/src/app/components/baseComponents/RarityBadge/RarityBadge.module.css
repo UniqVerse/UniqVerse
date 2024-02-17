@@ -1,0 +1,6 @@
+.rarityBadge {
+  border-radius: 12px;
+  padding: 4px 8px 4px 8px;
+  gap: 4px;
+  display: flex;
+}

@@ -4,6 +4,7 @@
 #[ink::contract]
 mod marketplace {
     use ink::storage::Mapping;
+
     use psp34::{self, PSP34};
 
     // #[ink::storage_item]
@@ -15,6 +16,13 @@ mod marketplace {
     pub struct PublishedNft {
         contract_address: AccountId,
         nft_address: psp34::Id,
+    }
+
+    pub enum VectorizeStatus {
+        Pending,
+        InProgress,
+        Done,
+        Failed,
     }
 
     /// Defines the storage of your contract.
@@ -60,7 +68,10 @@ mod marketplace {
         #[ink(message)]
         pub fn report_vectorize_status(&self) {}
         /// Return 
-        pub fn get_my_vector_queue(&self) {}
+        pub fn get_my_vector_queue(&self, _nft: PublishedNft, _status: VectorizeStatus) {
+            
+            self.vectorize_nft_queue.remove(&_nft.contract_address);
+        }
     }
 
     /// Unit tests in Rust are normally defined within such a `#[cfg(test)]`
