@@ -1,5 +1,9 @@
+'use-client';
+
+import { Button } from "../../baseComponents/Button/Button";
 import styles from "./UploadButton.module.css";
 import {ChangeEvent} from "react";
+import React, { useRef } from 'react';
 
 export function UploadButton({ onChangeFile }: {
     onChangeFile: (file: File) => void;
@@ -12,6 +16,16 @@ export function UploadButton({ onChangeFile }: {
             onChangeFile(file as File);
         //  }
     }
+
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const handleButtonClick = () => {
+        // Now TypeScript knows fileInputRef.current is an HTMLInputElement or null
+        if (fileInputRef.current !== null) {
+            fileInputRef.current.click();
+        }
+    };
+
     return (
         <div className="flex items-center justify-center w-full">
             <label htmlFor="dropzone-file"
@@ -27,7 +41,8 @@ export function UploadButton({ onChangeFile }: {
                         drag and drop</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                 </div>
-                <input id="dropzone-file" type="file" name='file' className="hidden" onChange={onChange}/>
+                <Button type={"primary"} onClick={handleButtonClick}>Upload Content</Button>
+                <input id="dropzone-file" type="file" name='file' className="hidden" onChange={onChange} ref={fileInputRef}/>
             </label>
         </div>
     )

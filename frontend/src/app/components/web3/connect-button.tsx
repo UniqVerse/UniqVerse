@@ -77,12 +77,12 @@ export const ConnectButton: FC<ConnectButtonProps> = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
 
-          <button
-            className="h-12 min-w-[14rem] gap-2 rounded-2xl bg-gray-200 border border-white/10 bg-primary px-4 py-3 font-bold text-foreground"
-            // isLoading={isConnecting}
-            // disabled={isConnecting}
-            translate="no"
-          >
+        <button
+    className="h-8 min-w-[10rem] gap-2 rounded-lg bg-gray border border-white/10 bg-primary px-3 py-2 text-sm font-bold text-foreground"
+    // isLoading={isConnecting}
+    // disabled={isConnecting}
+    translate="no"
+>
             Connect Wallet
             <RiArrowDownSLine size={20} aria-hidden="true" />
           </button>

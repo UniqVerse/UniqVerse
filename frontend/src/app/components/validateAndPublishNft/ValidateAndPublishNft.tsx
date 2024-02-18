@@ -12,6 +12,7 @@ import {UploadedNftImageForm} from "@/src/app/components/uploadedNftImageForm/Up
 import SearchResult from "@/src/app/components/searchResult/SearchResult";
 import {marketplaceUnderDevelopment} from "@/src/common/services/underDevelopment";
 import MarketplacePreview from "@/src/app/components/marketplacePreview/MarketplacePreview";
+import { Button } from "../baseComponents/Button/Button";
 
 export function ValidateAndPublishNft() {
 
@@ -46,7 +47,8 @@ export function ValidateAndPublishNft() {
                         <img src={'powered_by_aleph.svg'} alt={'Powered by Aleph Zero'}/>
                     </div>
                     <div>
-                        <a className={"cursor-pointer text-primaryStatic"} onClick={marketplaceUnderDevelopment}>Marketplace</a>
+                        {/* <a className={"cursor-pointer text-primaryStatic"} onClick={marketplaceUnderDevelopment}>Marketplace</a> */}
+                        <Button type={"primary"} onClick={marketplaceUnderDevelopment}>Marketplace</Button>
                     </div>
                 </div>
                 <div>{steps[step].left}</div>

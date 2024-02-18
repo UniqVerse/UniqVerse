@@ -6,6 +6,7 @@ import {BaseResponse, isSuccessResponse} from '@/src/common/types/responses/base
 import {ChangeEvent, useRef, useState} from 'react'
 import Loading from "@/src/app/components/loading/loading";
 import {UploadButton} from "@/src/app/components/uploadFile/uploadButton/UploadButton";
+import { ConnectButton } from '../web3/connect-button';
 
 export function UploadForm({onSuccess}: { onSuccess?: (data: NftFileData) => void }) {
     const [uploading, setUploading] = useState<boolean>(false);
@@ -52,7 +53,7 @@ export function UploadForm({onSuccess}: { onSuccess?: (data: NftFileData) => voi
 
         <div className={"text-center border-solid "}>
             <div>
-                <button>Connect wallet</button>
+                <ConnectButton></ConnectButton>
             </div>
             <div className={''}>
                 {
