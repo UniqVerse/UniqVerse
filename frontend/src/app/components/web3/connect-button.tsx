@@ -36,6 +36,8 @@ import { truncateHash } from '../../utils/truncate-hash'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import { deployNFTContract } from '../../deploy/deployContract'
 
+
+
 export interface ConnectButtonProps {}
 export const ConnectButton: FC<ConnectButtonProps> = () => {
   const {
@@ -144,19 +146,19 @@ export const ConnectButton: FC<ConnectButtonProps> = () => {
         </DropdownMenuTrigger>
 
 
-      {/* do the deployment of contract testing  */}
+      {/* do the deployment of contract testing 
  
         <button onClick={(event) => {
           (async () => {
             try {
-              await deployNFTContract("initialValue", "xxx");
+              await deployNFTContract("initialValue");
             } catch (error) {
               console.error(error);
             }
           })();
         }}>
           Deploy Contract
-        </button>
+        </button> */}
 
 
         <DropdownMenuContent
@@ -239,6 +241,9 @@ export const ConnectButton: FC<ConnectButtonProps> = () => {
     </div>
   )
 }
+
+
+
 
 export interface AccountNameProps {
   account: InjectedAccount
