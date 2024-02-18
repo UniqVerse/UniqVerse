@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
             body: JSON.stringify({
                 image: nftData.id,
                 // image: "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAExSURBVHgBzVJtTsJAEJ2Zmor6p94AbgB+JEYxKTfwBuINvAHxCNwAbsANqIniD6PFE+AR+q+F2BlnN11DkRL4x0s2s9l5u/ve2wXYa1ynH93beXy3iYNVjXYah4w8NnMS7rwcXUbreFR1ABPfa/nWkQh6PdhFwVUa1wl5BgJPBavnH9JphK1kKwUE3DXVBxqAl4/MfJHx40YF7fQ9dFIFpAksz5PjCxvgTfY5FpQmCk6tvRz7byetUUkBEgbF5rqWQMQb/ClC7msjKHrg0U/yT4GDvU2Jk9p5w62FEgeLOc8QcPpaO+uU7S7BhKebQ71tuLxuw2MYmp6xWnkAEdsMbHgrUBvWMyOVPhauyIw1vC8X3lp7GqbvU8M96UGJoe/uoxdBBXLBBxK1mIEJPIG9wC+3OH4lR1cLEgAAAABJRU5ErkJggg==",
-                distance: 1,
+                distance: 0.7,
             }),
         });
         // the line above as curl command: curl -X POST -H "Content-Type: application/json" -d '{"image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAExSURBVHgBzVJtTsJAEJ2Zmor6p94AbgB+JEYxKTfwBuINvAHxCNwAbsANqIniD6PFE+AR+q+F2BlnN11DkRL4x0s2s9l5u/ve2wXYa1ynH93beXy3iYNVjXYah4w8NnMS7rwcXUbreFR1ABPfa/nWkQh6PdhFwVUa1wl5BgJPBavnH9JphK1kKwUE3DXVBxqAl4/MfJHx40YF7fQ9dFIFpAksz5PjCxvgTfY5FpQmCk6tvRz7byetUUkBEgbF5rqWQMQb/ClC7msjKHrg0U/yT4GDvU2Jk9p5w62FEgeLOc8QcPpaO+uU7S7BhKebQ71tuLxuw2MYmp6xWnkAEdsMbHgrUBvWMyOVPhauyIw1vC8X3lp7GqbvU8M96UGJoe/uoxdBBXLBBxK1mIEJPIG9wC+3OH4lR1cLEgAAAABJRU5ErkJggg==", "distance": 1}' http://localhost:4000/similar
