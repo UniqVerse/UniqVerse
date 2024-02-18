@@ -4,6 +4,8 @@ import { put } from "@vercel/blob";
 import { BaseResponse } from '@/src/common/types/responses/baseResponse';
 import { NftFileData } from '@/src/common/types/data/NftData';
 const CryptoJS = require('crypto-js');
+import {PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
+import {S3ClientConfig} from "@aws-sdk/client-s3/dist-types/S3Client";
 
 // we use server component, don't use it. 
 export async function POST(request: NextRequest) {
@@ -27,13 +29,29 @@ export async function POST(request: NextRequest) {
   //   await writeFile(path, buffer)
   //   console.log(`open ${path} to see the uploaded file`)
   // const fileHash = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(buffer)).toString();
-  const fileHash = CryptoJS.SHA256(buffer).toString(CryptoJS.enc.Hex);
+  // const fileHash = file.name;
+  const fileHash = CryptoJS.SHA256(buffer.toString()).toString(CryptoJS.enc.Hex);
 
   // const q = await put(`nfts/${fileHash}`, buffer, { access: 'public' });
   // console.log(q);
   // const { url } = q;
-  const { url } = await put(`nfts/${fileHash}`, buffer, { access: 'public', addRandomSuffix: false, contentType: file.type });
-  console.log(`File uploaded to ${url}`)
+  // const { url } = await put(`nfts/${fileHash}`, buffer, { access: 'public', addRandomSuffix: false, contentType: file.type });
+  // console.log(`File uploaded to ${url}`)
+    // noinspection TypeScriptValidateTypes
+    const client = new S3Client({
+        region: process.env.AWS_DEFAULT_REGION || "eu-central-1",
+    });
+    const command = new PutObjectCommand({
+        Bucket: process.env.S3_BUCKET,
+        Key: `nfts/${fileHash}`,
+        Body: buffer,
+        ContentType: file.type,
+        ACL: 'public-read'
+    });
+    // noinspection TypeScriptValidateTypes
+    const response = await client.send(command);
+    console.log(response);
+    const url = `https://${process.env.S3_BUCKET}.s3.amazonaws.com/nfts/${fileHash}`
 
   return NextResponse.json<BaseResponse<NftFileData>>({ success: true, data: {url, id: fileHash} })
 }

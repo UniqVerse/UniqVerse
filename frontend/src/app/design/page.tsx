@@ -1,10 +1,11 @@
-import {Rarity, RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
+import {RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
 import {NftCard} from "@/src/app/components/baseComponents/NftCard/NftCard";
+import {RarityEnum} from "@/src/common/services/rarity";
 import {ButtonType, Button} from "@/src/app/components/baseComponents/Button/Button";
 
 export default function Design() {
     const badges = ["common", "uncommon", "rare", "epic", "legendary"].map((r) => {
-        return <RarityBadge key={r} rarity={r as Rarity}/>
+        return <RarityBadge key={r} rarity={r as RarityEnum}/>
     });
 
 
@@ -22,11 +23,11 @@ export default function Design() {
                     nftName={"Some NFT name"}
                     rarity={"legendary"}
                     price={"500,000"}/>
-            
-                    <h1>FilledPrimaryButton</h1> 
+
+                    <h1>FilledPrimaryButton</h1>
                     <Button type={"primary"} cl="text_primary" ></Button>
 
-                    <h1>OutlinedNeutralButton</h1> 
+                    <h1>OutlinedNeutralButton</h1>
                     <Button type={"outlined"} cl="outlined" ></Button>
 
             </div>

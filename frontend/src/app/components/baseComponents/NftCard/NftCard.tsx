@@ -1,5 +1,5 @@
-import styles from './NftCard.module.css';
-import {Rarity, RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
+import {RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
+import {RarityEnum} from "@/src/common/services/rarity";
 
 export function NftCard({
                             imgSrc,
@@ -13,7 +13,7 @@ export function NftCard({
     imgAlt: string;
     nftName: string;
     author: string;
-    rarity: Rarity;
+    rarity: RarityEnum;
     price: string;
 }>) {
 

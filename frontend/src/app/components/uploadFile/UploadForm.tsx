@@ -5,7 +5,7 @@ import { NftFileData } from '@/src/common/types/data/NftData';
 import { BaseResponse, isSuccessResponse } from '@/src/common/types/responses/baseResponse';
 import { useRef, useState } from 'react'
 
-export function UploadForm() {
+export function UploadForm({onSuccess}: {onSuccess?: (data: NftFileData) => void}) {
   const [file, setFile] = useState<File>()
   const [uploading, setUploading] = useState<boolean>(false);
   const inputRef = useRef<any | null>(null);
@@ -28,8 +28,7 @@ export function UploadForm() {
       if (!res.ok) throw new Error(await res.text())
       const response = (await res.json()) as BaseResponse<NftFileData>
       if (isSuccessResponse(response)) {
-        saveUploadedNftFileData(response.data)
-        
+        onSuccess && onSuccess(response.data as NftFileData)
       } else {
         throw new Error(response.message)
       }
