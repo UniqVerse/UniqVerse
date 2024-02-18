@@ -15,7 +15,7 @@ import contractMetadata from './nft.json';
 
 import wasmBase64 from './nftWasmBase64.json';
 
-const contractWasm = Uint8Array.from(atob(wasmBase64.wasm), c => c.charCodeAt(0));
+// const contractWasm = Uint8Array.from(atob(wasmBase64.wasm), c => c.charCodeAt(0));
 
 // This function deploy an smart contract to the blockchain
 // Input parameter:
@@ -29,7 +29,8 @@ const contractWasm = Uint8Array.from(atob(wasmBase64.wasm), c => c.charCodeAt(0)
 export const deployNFTContract = async (initialValue: string, signer: KeyringPair, __options?: ConstructorOptions) => {
 
     // WebSocket endpoint for the Polkadot blockchain
-    const wsEndPoint = 'wss://ws.test.azero.dev';
+    const wsEndPoint = 'wss://127.0.0.1:9944';
+    // const wsEndPoint = 'wss://ws.test.azero.dev';
 
     //Create an API instance (in order to connect to a compatible chain) 
     const wsProvider = new WsProvider(wsEndPoint);
@@ -40,7 +41,7 @@ export const deployNFTContract = async (initialValue: string, signer: KeyringPai
 
     // use a CodePromise instance to upload the wasm code to the blockchain
     // CodePromise() : part of the polkadot library for working with contracts pallet.
-    const code = new CodePromise(api, __contract, contractWasm);
+    // const code = new CodePromise(api, __contract, contractWasm);
 
     const gasLimit = (await _genValidGasLimitAndValue(api, __options)).gasLimit as WeightV2
     const storageDepositLimit = null//__options?.storageDepositLimit
@@ -50,17 +51,17 @@ export const deployNFTContract = async (initialValue: string, signer: KeyringPai
     // an optional value (__options?.value). 
     // ! - "initial_vlaue" is the argument to the contract constructor or initialization 
     // method.
-    const tx = code.tx['new']!(
-        { gasLimit, storageDepositLimit, value: __options?.value }
-        // initialValue,
-      )
-
-      let response
-      try {
-        // The transaction is signed and sent to the blockchain 
-        response = await _signAndSend(api.registry, tx, signer, (event: any) => event)
-      } catch (error) {
-        console.log(error)
-      }
+    // const tx = code.tx['new']!(
+    //     { gasLimit, storageDepositLimit, value: __options?.value }
+    //     // initialValue,
+    //   )
+    //
+    //   let response
+    //   try {
+    //     // The transaction is signed and sent to the blockchain
+    //     response = await _signAndSend(api.registry, tx, signer, (event: any) => event)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
 
 }
