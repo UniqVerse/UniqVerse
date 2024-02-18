@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@727-ventures/typechain-types": "^1.1.2",
     "@aws-sdk/client-s3": "^3.515.0",
     "@azns/resolver-core": "^1.6.0",
     "@azns/resolver-react": "^1.6.0",
     "@polkadot/api": "^10.11.2",
-    "@polkadot/api-contract": "^10.11.2",
     "@polkadot/extension-dapp": "^0.46.6",
     "@polkadot/extension-inject": "^0.46.6",
     "@polkadot/keyring": "^12.6.2",
@@ -38,14 +38,14 @@
     "react-icons": "^4.4.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
-    "weaviate-ts-client": "^2.0.0",
-    "@727-ventures/typechain-types": "^1.1.2"
+    "weaviate-ts-client": "^2.0.0"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@polkadot/api-contract": "^10.11.2",
     "@types/crypto-js": "^4.2.2",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^20",
+    "@types/node": "^20.11.19",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^7.0.1",
