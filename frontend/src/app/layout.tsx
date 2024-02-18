@@ -24,7 +24,7 @@ export default function RootLayout({
             <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap"
                   rel="stylesheet"/>
         </Head>
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-neutral0 text-neutral40`}>
             <ClientProviders>
                 <TooltipProvider>{children}</TooltipProvider>
             </ClientProviders>
