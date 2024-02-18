@@ -24,7 +24,6 @@ module.exports = {
               "primaryStatic": "#3AF8CD",
               "primaryHover": "#83FFE3",
               "primaryClick": "#B9FFEF",
-              "primaryStatic": "#3AF8CD",
               "rarityCommon": "#EEEAF4",
               "rarityCommon2": "#3A393E",
               "rarityUncommon": "#6CFF95",
