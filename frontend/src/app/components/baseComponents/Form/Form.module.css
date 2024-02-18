@@ -1,0 +1,26 @@
+.wrapper {
+    background-color: #374151; /* Adjusted for a dark background */
+    border: 1px solid #4b5563; /* Darker border color */
+    color: #f9fafb; /* Text color for dark mode */
+    font-size: 0.875rem; /* text-sm */
+    border-radius: 0.5rem; /* rounded-lg */
+    display: block; /* block */
+    width: 100%; /* w-full */
+    padding: 0.625rem; /* p-2.5, adjust if necessary for inner content */
+    position: relative; /* Needed to position the .clear button absolutely within */
+}
+
+/* Direct input styling if it's not inheriting correctly from .wrapper */
+.wrapper input {
+    background-color: #374151; /* Dark background for the input */
+    color: #f9fafb; /* Light text color for visibility */
+    border: none; /* Optional: removes border */
+    width: calc(100% - 2.5rem); /* Adjust width to prevent text overlap with clear icon */
+}
+
+
+.clear {
+    position: absolute;
+    right: 20px;
+    /* background-color: red; */
+  }
