@@ -23,7 +23,6 @@ import toast from 'react-hot-toast'
 import { AiOutlineCheckCircle, AiOutlineDisconnect } from 'react-icons/ai'
 import { FiChevronDown, FiExternalLink } from 'react-icons/fi'
 import { RiArrowDownSLine } from 'react-icons/ri'
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,12 +30,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
-
-
 import { env } from '../../config/environment'
 import { truncateHash } from '../../utils/truncate-hash'
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
+import { deployNFTContract } from '../../deploy/deployContract'
 
 export interface ConnectButtonProps {}
 export const ConnectButton: FC<ConnectButtonProps> = () => {
@@ -142,7 +140,25 @@ export const ConnectButton: FC<ConnectButtonProps> = () => {
         </div>
         <FiChevronDown className="shrink-0" size={22} aria-hidden="true" />
       </button>
+      
         </DropdownMenuTrigger>
+
+
+      {/* do the deployment of contract testing  */}
+ 
+        <button onClick={(event) => {
+          (async () => {
+            try {
+              await deployNFTContract("initialValue", "xxx");
+            } catch (error) {
+              console.error(error);
+            }
+          })();
+        }}>
+          Deploy Contract
+        </button>
+
+
         <DropdownMenuContent
           align="end"
           className="no-scrollbar max-h-[40vh] min-w-[14rem] overflow-scroll rounded-2xl"
