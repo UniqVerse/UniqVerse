@@ -8,3 +8,12 @@
     display: flex;
     font-size: 0.7rem;
   }
+
+
+.primary-static { background-color: #3AF8CD; }
+.primary-hover:hover { background-color: #83FFE3; }
+.primary-click:active { background-color: #B9FFEF; }
+
+.outlined-static { background-color: #29282E; }
+.outlined-hover:hover { background-color: #29282E; }
+.outlined-click:active { background-color: #38363E; }
