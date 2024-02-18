@@ -10,6 +10,7 @@ import {
 import {NftFileData} from "@/src/common/types/data/NftData";
 import {UploadedNftImageForm} from "@/src/app/components/uploadedNftImageForm/UploadedNftImageForm";
 import SearchResult from "@/src/app/components/searchResult/SearchResult";
+import {marketplaceUnderDevelopment} from "@/src/common/services/underDevelopment";
 
 export function ValidateAndPublishNft() {
 
@@ -34,11 +35,18 @@ export function ValidateAndPublishNft() {
             right: <UploadedNftImageForm onCancel={onSearchCancel}/>},
         "publishNft": {left: <>left</>, right: <PublishNft/>},
     }
+
     return (
         <div className={"grid grid-cols-3"}>
             <div className={"col-span-2 p-10"}>
-                <div>
-                    <img src={""}/>
+                <div className={'flex justify-between'}>
+                    <div className={'flex gap-8'}>
+                        <img src={'logo.svg'} alt={'UniqVerse'}/>
+                        <img src={'powered_by_aleph.svg'} alt={'Powered by Aleph Zero'}/>
+                    </div>
+                    <div>
+                        <a className={"cursor-pointer text-primaryStatic"} onClick={marketplaceUnderDevelopment}>Marketplace</a>
+                    </div>
                 </div>
                 {steps[step].left}
             </div>

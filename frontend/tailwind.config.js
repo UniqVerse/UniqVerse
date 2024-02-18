@@ -23,6 +23,7 @@ module.exports = {
               "opacity1": "#3AF8CD0F",
               "primaryHover": "#83FFE3",
               "primaryClick": "#B9FFEF",
+              "primaryStatic": "#3AF8CD",
               "rarityCommon": "#EEEAF4",
               "rarityCommon2": "#3A393E",
               "rarityUncommon": "#6CFF95",
