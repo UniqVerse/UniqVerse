@@ -11,6 +11,7 @@ import {NftFileData} from "@/src/common/types/data/NftData";
 import {UploadedNftImageForm} from "@/src/app/components/uploadedNftImageForm/UploadedNftImageForm";
 import SearchResult from "@/src/app/components/searchResult/SearchResult";
 import {marketplaceUnderDevelopment} from "@/src/common/services/underDevelopment";
+import MarketplacePreview from "@/src/app/components/marketplacePreview/MarketplacePreview";
 
 export function ValidateAndPublishNft() {
 
@@ -29,7 +30,7 @@ export function ValidateAndPublishNft() {
         removeUploadedNftFileData().catch(console.error)
     }
     const steps: Record<string, { left: JSX.Element, right: JSX.Element }> = {
-        "upload": {left: <>left</>, right: <UploadForm onSuccess={onFileUploaded}/>},
+        "upload": {left: <MarketplacePreview/>, right: <UploadForm onSuccess={onFileUploaded}/>},
         "searchResult": {
             left: <SearchResult onCancel={onSearchCancel}/>,
             right: <UploadedNftImageForm onCancel={onSearchCancel}/>},
@@ -38,7 +39,7 @@ export function ValidateAndPublishNft() {
 
     return (
         <div className={"grid grid-cols-3"}>
-            <div className={"col-span-2 p-10"}>
+            <div className={"col-span-2 p-10 flex flex-col gap-10"}>
                 <div className={'flex justify-between'}>
                     <div className={'flex gap-8'}>
                         <img src={'logo.svg'} alt={'UniqVerse'}/>
@@ -48,7 +49,7 @@ export function ValidateAndPublishNft() {
                         <a className={"cursor-pointer text-primaryStatic"} onClick={marketplaceUnderDevelopment}>Marketplace</a>
                     </div>
                 </div>
-                {steps[step].left}
+                <div>{steps[step].left}</div>
             </div>
             <div className={""}>
                 {steps[step].right}

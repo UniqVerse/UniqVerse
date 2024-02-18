@@ -1,6 +1,5 @@
 "use client"
 import {getUploadedNftFileData} from "@/src/common/services/nftFiles";
-import Image from "next/image";
 
 export function UploadedNftImageForm({onCancel}: {onCancel?: () => void}) {
     const nftFileData = getUploadedNftFileData();
