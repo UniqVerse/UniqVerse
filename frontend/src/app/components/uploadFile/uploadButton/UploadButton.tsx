@@ -5,8 +5,12 @@ export function UploadButton({ onChangeFile }: {
     onChangeFile: (file: File) => void;
 }) {
     const onChange = async (e: ChangeEvent<HTMLInputElement>) => {
-        let file = e.target.files?.[0];
-        onChangeFile(file);
+         
+        const file = e.target.files?.[0];
+
+        //  if(file){
+            onChangeFile(file as File);
+        //  }
     }
     return (
         <div className="flex items-center justify-center w-full">

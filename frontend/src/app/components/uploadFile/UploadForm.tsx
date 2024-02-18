@@ -38,7 +38,7 @@ export function UploadForm({onSuccess}: { onSuccess?: (data: NftFileData) => voi
 
   return (
     
-  <form onSubmit={onSubmit}>
+  <form >
     <div className="flex w-1/2 flex-col items-center justify-center pt-5 pb-6 border-2 border-dashed rounded-md">
       
       <label 
@@ -52,9 +52,9 @@ export function UploadForm({onSuccess}: { onSuccess?: (data: NftFileData) => voi
         id="multiple_files" 
         type="file" 
         name="file"
-        ref={inputRef}
+        // ref={inputRef}
         multiple 
-        onChange={(e) => setFile(e.target.files?.[0])}
+        // onChange={(e) => onChangeFile(e.target.files?.[0])}
       />
       <div className="flex flex-col items-center justify-center">
         <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"

@@ -2,7 +2,7 @@ import type { KeyringPair } from '@polkadot/keyring/types'
 import type { WeightV2 } from '@polkadot/types/interfaces'
 import type { ConstructorOptions } from '@727-ventures/typechain-types'
 import { ApiPromise, WsProvider } from '@polkadot/api';
-import { ContractFile } from './testContract';
+// import { ContractFile } from './testContract';
 import { CodePromise } from '@polkadot/api-contract';
 import { ContractPromise } from '@polkadot/api-contract'
 import {
