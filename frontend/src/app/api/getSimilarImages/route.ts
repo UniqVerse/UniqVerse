@@ -6,11 +6,11 @@ import {ErrorResponse} from "@/src/common/types/responses/baseResponse"
 export async function POST(req: NextRequest) {
     const nftData = (await req.json()) as NftFileData
     console.log(nftData, process.env.VECTOR_DB_ADDRESS)
-    if (!nftData.url) {
-        return NextResponse.json<ErrorResponse>({success: false, message: 'We support only images for now'})
+    if (!nftData.url || !nftData.id) {
+        return NextResponse.json<ErrorResponse>({success: false, message: 'Invalid NFT data provided'})
     }
-    const blob = await fetch(nftData.url)
-    const test = Buffer.from(await blob.arrayBuffer()).toString('base64')
+    // const blob = await fetch(nftData.url)
+    // const test = Buffer.from(await blob.arrayBuffer()).toString('base64')
 
     // const client = weaviate.client({
     //   scheme: 'http',
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                image: test,
+                image: nftData.id,
                 // image: "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAExSURBVHgBzVJtTsJAEJ2Zmor6p94AbgB+JEYxKTfwBuINvAHxCNwAbsANqIniD6PFE+AR+q+F2BlnN11DkRL4x0s2s9l5u/ve2wXYa1ynH93beXy3iYNVjXYah4w8NnMS7rwcXUbreFR1ABPfa/nWkQh6PdhFwVUa1wl5BgJPBavnH9JphK1kKwUE3DXVBxqAl4/MfJHx40YF7fQ9dFIFpAksz5PjCxvgTfY5FpQmCk6tvRz7byetUUkBEgbF5rqWQMQb/ClC7msjKHrg0U/yT4GDvU2Jk9p5w62FEgeLOc8QcPpaO+uU7S7BhKebQ71tuLxuw2MYmp6xWnkAEdsMbHgrUBvWMyOVPhauyIw1vC8X3lp7GqbvU8M96UGJoe/uoxdBBXLBBxK1mIEJPIG9wC+3OH4lR1cLEgAAAABJRU5ErkJggg==",
                 distance: 1,
             }),

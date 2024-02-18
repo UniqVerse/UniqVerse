@@ -1,8 +1,8 @@
 'use client'
 import {getUploadedNftFileData} from "@/src/common/services/nftFiles";
-import {BaseResponse, isSuccessResponse} from "@/src/common/types/responses/baseResponse";
+import {isSuccessResponse} from "@/src/common/types/responses/baseResponse";
 import {useEffect, useState} from "react";
-import {distanceToRarity, distanceToSimilarityPercent} from "@/src/common/services/rarity";
+import {distanceToSimilarityPercent} from "@/src/common/services/rarity";
 
 export type DbNFT = {
     _additional: {
@@ -26,7 +26,7 @@ export default function SearchResult({onCancel}: { onCancel?: () => void }) {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({url: nftFileData?.url})
+            body: JSON.stringify(nftFileData)
         })
             .then(value => value
                 .json()
@@ -45,16 +45,26 @@ export default function SearchResult({onCancel}: { onCancel?: () => void }) {
         )
     }
 
+    if (!loaded) {
+        return (
+            <>
+                <h1>Looking for the similar images...</h1>
+            </>
+        )
+    }
+
     return (
-        <div className={"flex"}>
-            {nfts.nfts.map((nft, index) => (
-                <div className={"w-1/2 "} key={index}>
-                    <h1>{nft.name}</h1>
-                    {Math.round(distanceToSimilarityPercent(nft._additional.distance))}%
-                    <img src={baseUrl + nft._additional.id} alt="NFT Image" className={""}/>
-                </div>
-            ))}
-        </div>
+        <>
+            <div><span>Found:</span> <span>{nfts.nfts.length} similar content</span></div>
+            <div className={"grid grid-cols-2 md:grid-cols-5 gap-4"}>
+                {nfts.nfts.map((nft, index) => (
+                    <div key={index} className={''}>
+                        <img src={baseUrl + nft.name} alt="NFT Image" className={"h-min max-w-full rounded-lg"}/>
+                        <div className={"text-center"}>{Math.round(distanceToSimilarityPercent(nft._additional.distance))}%</div>
+                    </div>
+                ))}
+            </div>
+        </>
     )
 }
 

@@ -35,11 +35,14 @@ export function ValidateAndPublishNft() {
         "publishNft": {left: <>left</>, right: <PublishNft/>},
     }
     return (
-        <div className={"flex"}>
-            <div className={"w-2/3 flex"}>
+        <div className={"grid grid-cols-3"}>
+            <div className={"col-span-2 p-10"}>
+                <div>
+                    <img src={""}/>
+                </div>
                 {steps[step].left}
             </div>
-            <div className={"w-1/3 flex"}>
+            <div className={""}>
                 {steps[step].right}
             </div>
         </div>

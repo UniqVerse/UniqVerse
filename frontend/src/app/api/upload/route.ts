@@ -1,11 +1,9 @@
-import { writeFile } from 'fs/promises'
-import { NextRequest, NextResponse } from 'next/server'
-import { put } from "@vercel/blob";
-import { BaseResponse } from '@/src/common/types/responses/baseResponse';
-import { NftFileData } from '@/src/common/types/data/NftData';
-const CryptoJS = require('crypto-js');
+import {NextRequest, NextResponse} from 'next/server'
+import {BaseResponse} from '@/src/common/types/responses/baseResponse';
+import {NftFileData} from '@/src/common/types/data/NftData';
 import {PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
-import {S3ClientConfig} from "@aws-sdk/client-s3/dist-types/S3Client";
+
+const CryptoJS = require('crypto-js');
 
 // we use server component, don't use it. 
 export async function POST(request: NextRequest) {
@@ -30,7 +28,7 @@ export async function POST(request: NextRequest) {
   //   console.log(`open ${path} to see the uploaded file`)
   // const fileHash = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(buffer)).toString();
   // const fileHash = file.name;
-  const fileHash = CryptoJS.SHA256(buffer.toString()).toString(CryptoJS.enc.Hex);
+  const fileHash = CryptoJS.SHA256(buffer.toString('base64')).toString(CryptoJS.enc.Hex);
 
   // const q = await put(`nfts/${fileHash}`, buffer, { access: 'public' });
   // console.log(q);
