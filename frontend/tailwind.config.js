@@ -21,6 +21,7 @@ module.exports = {
               "neutral0": "#1C1B1F",
               "opacity0": "#3AF8CD08",
               "opacity1": "#3AF8CD0F",
+              "primaryStatic": "#3AF8CD",
               "primaryHover": "#83FFE3",
               "primaryClick": "#B9FFEF",
               "primaryStatic": "#3AF8CD",
