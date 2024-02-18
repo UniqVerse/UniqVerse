@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 import { put } from "@vercel/blob";
-const CryptoJS = require('crypto-js');
+import CryptoJS from 'crypto-js';
 
 export default function ServerUploadPage() {
   
@@ -23,7 +23,7 @@ export default function ServerUploadPage() {
     // console.log(`open ${path} to see the uploaded file`)
 
     // return { success: true }
-    const fileHash = CryptoJS.SHA256(buffer).toString(CryptoJS.enc.Hex);
+    const fileHash = CryptoJS.SHA256(buffer as unknown as string).toString(CryptoJS.enc.Hex);
     // const fileHash = CryptoJS.SHA256(CryptoJS.enc.Hex.parse(buffer)).toString();
     
     const q = await put(`nfts/${fileHash}`, buffer, { access: 'public' });
