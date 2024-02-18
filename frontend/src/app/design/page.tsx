@@ -26,10 +26,10 @@ export default function Design() {
                     price={"500,000"}/>
 
                     <h1>FilledPrimaryButton</h1>
-                    <Button type={"primary"} cl="text_primary" ></Button>
+                    {/* <Button type={"primary"} cl="text_primary" ></Button>
 
                     <h1>OutlinedNeutralButton</h1>
-                    <Button type={"outlined"} cl="outlined" ></Button>
+                    <Button type={"outlined"} cl="outlined" ></Button> */}
 
                     <h1>Form</h1>
                     <Form></Form>

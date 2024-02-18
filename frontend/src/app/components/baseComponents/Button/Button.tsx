@@ -1,13 +1,18 @@
+import React from 'react'; // Make sure to import React when using TypeScript
 import styles from './Button.module.css';
-// import {Rarity, RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/RarityBadge";
-import Image from 'next/dist/shared/lib/image-external';
-
-
 
 export type ButtonType = "primary" | "outlined";
 
-export function Button({type, cl, onClick}: { type: ButtonType, cl?: string; onClick?: () => void }) {
-
+// Add `children` to the component props
+export function Button({
+    type, 
+    onClick, 
+    children // Use children for passing content
+}: { 
+    type: ButtonType, 
+    onClick?: () => void, 
+    children?: React.ReactNode // Add children as an optional prop
+}) {
     const staticClassName = `${styles.generalButton} ${styles[`${type}-static`]}`;
     const hoverClassName = styles[`${type}-hover`];
     const clickClassName = styles[`${type}-click`];
@@ -16,10 +21,10 @@ export function Button({type, cl, onClick}: { type: ButtonType, cl?: string; onC
 
     const textColor = type === 'primary' ? 'black' : type === 'outlined' ? 'white' : 'inherit';
 
-
     return (
+        // Use children here to render the button's content
         <button className={classNames} style={{ color: textColor }} onClick={onClick}>
-            {cl}
+            {children}
         </button>
-    )
+    );
 }
