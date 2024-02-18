@@ -2,6 +2,7 @@ import {RarityBadge} from "@/src/app/components/baseComponents/RarityBadge/Rarit
 import {NftCard} from "@/src/app/components/baseComponents/NftCard/NftCard";
 import {RarityEnum} from "@/src/common/services/rarity";
 import {ButtonType, Button} from "@/src/app/components/baseComponents/Button/Button";
+import { Form } from "../components/baseComponents/Form/Form";
 
 export default function Design() {
     const badges = ["common", "uncommon", "rare", "epic", "legendary"].map((r) => {
@@ -29,7 +30,9 @@ export default function Design() {
 
                     <h1>OutlinedNeutralButton</h1>
                     <Button type={"outlined"} cl="outlined" ></Button>
-        
+
+                    <h1>Form</h1>
+                    <Form></Form>
             </div>
         </>
     )
