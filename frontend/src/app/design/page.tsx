@@ -29,7 +29,7 @@ export default function Design() {
 
                     <h1>OutlinedNeutralButton</h1>
                     <Button type={"outlined"} cl="outlined" ></Button>
-
+        
             </div>
         </>
     )
