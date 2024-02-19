@@ -12,6 +12,7 @@ import {UploadedNftImageForm} from "@/src/app/components/uploadedNftImageForm/Up
 import SearchResult from "@/src/app/components/searchResult/SearchResult";
 import {marketplaceUnderDevelopment} from "@/src/common/services/underDevelopment";
 import MarketplacePreview from "@/src/app/components/marketplacePreview/MarketplacePreview";
+import ConnectButton from "@/src/app/components/connectButton/ConnectButton";
 
 export function ValidateAndPublishNft() {
 
@@ -52,6 +53,7 @@ export function ValidateAndPublishNft() {
                 <div>{steps[step].left}</div>
             </div>
             <div className={""}>
+                <ConnectButton/>
                 {steps[step].right}
             </div>
         </div>

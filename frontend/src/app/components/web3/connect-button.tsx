@@ -228,14 +228,14 @@ export const ConnectButton: FC<ConnectButtonProps> = () => {
       {reducibleBalanceFormatted !== undefined && (
         <div className="flex min-w-[10rem] items-center justify-center gap-2 rounded-2xl border bg-gray-900 px-4 py-3 font-mono text-sm font-bold text-foreground">
           {reducibleBalanceFormatted}
-          {/*{(!reducibleBalance || reducibleBalance?.isZero()) && (*/}
-          {/*  <Tooltip>*/}
-          {/*    <TooltipTrigger className="cursor-help">*/}
-          {/*      <AlertOctagon size={16} className="text-warning" />*/}
-          {/*    </TooltipTrigger>*/}
-          {/*    <TooltipContent>No balance to pay fees</TooltipContent>*/}
-          {/*  </Tooltip>*/}
-          {/*)}*/}
+          {(!reducibleBalance || reducibleBalance?.isZero()) && (
+            <Tooltip>
+              <TooltipTrigger className="cursor-help">
+                <AlertOctagon size={16} className="text-warning" />
+              </TooltipTrigger>
+              <TooltipContent>No balance to pay fees</TooltipContent>
+            </Tooltip>
+          )}
         </div>
       )}
     </div>

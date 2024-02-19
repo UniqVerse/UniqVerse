@@ -51,9 +51,6 @@ export function UploadForm({onSuccess}: { onSuccess?: (data: NftFileData) => voi
         {/*<input type="submit" value="Upload" disabled={uploading}/>*/}
 
         <div className={"text-center border-solid "}>
-            <div>
-                <button>Connect wallet</button>
-            </div>
             <div className={''}>
                 {
                 uploading ? <Loading/> :
