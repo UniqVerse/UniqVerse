@@ -1,29 +1,62 @@
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
-pub use self::nft::TokenRef;
+mod balances;
+mod data;
+mod errors;
+pub mod metadata;
+mod traits;
+mod unit_tests;
+
+pub use data::{Id, PSP34Data, PSP34Event};
+pub use errors::PSP34Error;
+pub use traits::{PSP34Burnable, PSP34Metadata, PSP34Mintable, PSP34};
+
+#[cfg(feature = "enumerable")]
+pub use traits::PSP34Enumerable;
+
+// An example code of a smart contract using PSP34Data struct to implement
+// the functionality of PSP34 fungible token.
+//
+// Any contract can be easily enriched to act as PSP34 token by:
+// (1) adding PSP34Data to contract storage
+// (2) properly initializing it
+// (3) defining the correct AttributeSet, Transfer and Approval events
+// (4) implementing PSP34 trait based on PSP34Data methods
+// (5) properly emitting resulting events
+//
+// Implemented the optional PSP34Mintable (6), PSP34Burnable (7), and PSP34Metadata (8) extensions
+// and included unit tests (8).
+
+#[cfg(feature = "contract")]
 #[ink::contract]
-pub mod nft {
-    pub use psp34::*;
+mod token {
+    use crate::{
+        metadata, Id, PSP34Burnable, PSP34Data, PSP34Error, PSP34Event, PSP34Metadata,
+        PSP34Mintable, PSP34,
+    };
     use ink::prelude::vec::Vec;
 
     #[cfg(feature = "enumerable")]
-    use psp34::PSP34Enumerable;
+    use crate::PSP34Enumerable;
 
     #[ink(storage)]
     pub struct Token {
-        data: PSP34Data,          
-        metadata: metadata::Data, 
+        data: PSP34Data,          // (1)
+        metadata: metadata::Data, // (8)
     }
 
     impl Token {
         #[ink(constructor)]
         pub fn new() -> Self {
             Self {
-                data: PSP34Data::new(),              
-                metadata: metadata::Data::default(), 
+                data: PSP34Data::new(),              // (2)
+                metadata: metadata::Data::default(), // (8)
             }
         }
 
+        // A helper function translating a vector of PSP34Events into the proper
+        // ink event types (defined internally in this contract) and emitting them.
+        // (5)
         fn emit_events(&self, events: ink::prelude::vec::Vec<PSP34Event>) {
             for event in events {
                 match event {
@@ -46,11 +79,6 @@ pub mod nft {
                     }
                 }
             }
-        }
-
-        #[ink(message)]
-        pub fn to_account_id(&self) -> AccountId {
-            self.env().account_id()
         }
     }
 
@@ -136,7 +164,7 @@ pub mod nft {
         #[ink(message)]
         fn owner_of(&self, id: Id) -> Option<AccountId> {
             self.data.owner_of(&id)
-        }        
+        }
     }
 
     // (6)
@@ -174,6 +202,6 @@ pub mod nft {
     // (9)
     #[cfg(test)]
     mod tests {
-        psp34::tests!(Token, Token::new);
+        crate::tests!(Token, Token::new);
     }
 }
