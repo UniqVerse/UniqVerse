@@ -1,6 +1,7 @@
 #![cfg_attr(not(feature = "std"), no_std, no_main)]
 
 pub use self::nft::TokenRef;
+pub use self::nft::Token;
 #[ink::contract]
 pub mod nft {
     pub use psp34::*;
@@ -142,24 +143,24 @@ pub mod nft {
     // (6)
     impl PSP34Mintable for Token {
         #[ink(message)]
-        fn mint(&mut self, id: Id) -> Result<(), PSP34Error> {
+        fn mint(&mut self, _id: Id) -> Result<(), PSP34Error> {
             // Add security, restrict usage of the message
             todo!();
-            let events = self.data.mint(self.env().caller(), id)?;
-            self.emit_events(events);
-            Ok(())
+            // let events = self.data.mint(self.env().caller(), id)?;
+            // self.emit_events(events);
+            // Ok(())
         }
     }
 
     // (7)
     impl PSP34Burnable for Token {
         #[ink(message)]
-        fn burn(&mut self, account: AccountId, id: Id) -> Result<(), PSP34Error> {
+        fn burn(&mut self, _account: AccountId, _id: Id) -> Result<(), PSP34Error> {
             // Add security, restrict usage of the message
             todo!();
-            let events = self.data.burn(self.env().caller(), account, id)?;
-            self.emit_events(events);
-            Ok(())
+            // let events = self.data.burn(self.env().caller(), account, id)?;
+            // self.emit_events(events);
+            // Ok(())
         }
     }
 
